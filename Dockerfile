@@ -1,8 +1,9 @@
 FROM nginx:1.13.11
 
 RUN apt-get update \
-    && apt-get install -y traceroute curl dnsutils netcat-openbsd jq nmap \ 
-                          net-tools tcpdump \
+    && apt-get install -y mtr curl dnsutils netcat-openbsd jq nmap \ 
+                          net-tools tcpdump iputils-ping iproute2 \
+                          iftop mc vim \
     && rm -rf /var/lib/apt/lists/*
 
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
